@@ -51,8 +51,8 @@ class App extends Component {
   updateNote() {
     const updatedNote = {
       color: this.state.noteColor || 'rgb(250, 169, 176)',
-      title: this.state.noteTitle || '(no title)',
-      body: this.state.noteBody || '(empty note)',
+      title: this.state.noteTitle || '(add a title)',
+      body: this.state.noteBody || '(add a note)',
     };
 
     const revisedNotes = this.state.notes;
