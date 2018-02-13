@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack -p",
     "react": "webpack -d --watch",
-    "server": "nodemon ./server/index.js",
+    "server": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",
