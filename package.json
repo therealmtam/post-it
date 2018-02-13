@@ -1,5 +1,5 @@
 {
-  "name": "scaffolding",
+  "name": "post-it",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealmtam/scaffolding.git"
+    "url": "git+https://github.com/therealmtam/post-it.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/therealmtam/scaffolding/issues"
+    "url": "https://github.com/therealmtam/post-it/issues"
   },
-  "homepage": "https://github.com/therealmtam/scaffolding#readme",
+  "homepage": "https://github.com/therealmtam/post-itg#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
