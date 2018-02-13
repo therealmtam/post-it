@@ -62,11 +62,10 @@ header {
 }
 /* -------------------------------*/
 main {
-  width: 100%;
-  height: 95%;
+  min-width: 500px;
+  height: 100%;
   background-color: rgb(249, 249, 251);
-  overflow: auto;
-
+  overflow: auto; /*both #page and main need to be overflow:auto to cover view height*/
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
