@@ -10,7 +10,6 @@
     "build": "webpack -p",
     "react": "webpack -d --watch",
     "server": "nodemon ./server/index.js",
-    "postinstall": "webpack -p"
   },
   "repository": {
     "type": "git",
