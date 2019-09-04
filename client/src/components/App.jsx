@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import EditNoteView from './EditNoteView.jsx';
+
 /**
  * Description:
  * App component renders all views for the application.
@@ -48,11 +50,11 @@ class App extends Component {
     });
   }
 
-  updateNote() {
+  updateNote(noteColor, noteTitle, noteBody) {
     const updatedNote = {
-      color: this.state.noteColor || 'rgb(250, 169, 176)',
-      title: this.state.noteTitle || '(add a title)',
-      body: this.state.noteBody || '(add a note)',
+      color: noteColor || 'rgb(250, 169, 176)',
+      title: noteTitle || '(add a title)',
+      body: noteBody || '(add a note)',
     };
 
     const revisedNotes = this.state.notes;
@@ -76,27 +78,6 @@ class App extends Component {
 
     this.setState({
       notes: [...this.state.notes, newNote],
-    });
-  }
-
-  // ----------------------------------//
-  // FORM INPUT FUNCTIONS:
-
-  updateNoteTitle(event) {
-    this.setState({
-      noteTitle: event.target.value,
-    });
-  }
-
-  updateNoteBody(event) {
-    this.setState({
-      noteBody: event.target.value,
-    });
-  }
-
-  updateNoteColor(event) {
-    this.setState({
-      noteColor: event.target.value,
     });
   }
 
@@ -141,42 +122,10 @@ class App extends Component {
       );
     } else if (this.state.view === 'editNote') {
       return (
-        <div id="note-editor-section">
-          <form id="note-editor" onSubmit={this.updateNote.bind(this)}>
-            <label id="note-editor-title" >
-              Title:
-              <input
-                id="title-input-field"
-                type="text"
-                maxLength="20"
-                value={this.state.noteTitle}
-                onChange={this.updateNoteTitle.bind(this)}
-              />
-            </label>
-            <label id="note-editor-body">
-              Note:
-              <textarea
-                style={{ whiteSpace: 'pre' }}
-                value={this.state.noteBody}
-                onChange={this.updateNoteBody.bind(this)}
-              />
-            </label>
-            <label id="note-editor-color">
-              Note Color:
-              <select
-                id="color-selector"
-                onChange={this.updateNoteColor.bind(this)}
-              >
-                <option value={this.state.noteColor} selected>Select</option>
-                <option value="rgb(250, 169, 176)">Red</option>
-                <option value="rgb(251, 219, 174)">Mango</option>
-                <option value="rgb(181, 236, 209)">Lime</option>
-                <option value="rgb(86, 182, 191)">Ocean</option>
-              </select>
-            </label>
-            <input id="submit-button" type="submit" value="Update" />
-          </form>
-        </div>
+        < EditNoteView
+            state={this.state}
+            updateNote={this.updateNote.bind(this)}
+        />
       );
     }
   }
@@ -190,12 +139,16 @@ class App extends Component {
           <div id="left-spacer" />
           <h1 id="page-title" >Post-It</h1>
           <div id="right-spacer">
-            {(() => (this.state.view === 'home' ? <input
-              id="btn-add-note"
-              type="button"
-              value="+      Add Note"
-              onClick={this.addNewNote.bind(this)}
-            /> : <div />))()}
+            {
+                (() => (
+                    this.state.view === 'home' ? <input
+                    id="btn-add-note"
+                    type="button"
+                    value="+      Add Note"
+                    onClick={this.addNewNote.bind(this)}
+                    /> : <div />
+                ))()
+            }
           </div>
         </header>
         {this.renderView()}
