@@ -92,7 +92,7 @@ class EditNoteView extends Component {
     }
 }
 
-Component1.propTypes = {
+EditNoteView.propTypes = {
     updateNote: PropTypes.func.isRequired,
     state: PropTypes.object.isRequired,
 };
